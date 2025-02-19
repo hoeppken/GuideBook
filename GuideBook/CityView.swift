@@ -16,7 +16,7 @@ struct CityView: View {
         
         NavigationStack {
             
-            ScrollView {
+            ScrollView (showsIndicators: false){
                 
                 VStack {
                     ForEach(citites) { city in
@@ -24,7 +24,7 @@ struct CityView: View {
                         NavigationLink {
                             AttractionView(city: city)
                         } label: {
-                            Text(city.name)
+                            CityCard(city: city).padding(.bottom, 20)
                         }
 
                         
@@ -32,8 +32,8 @@ struct CityView: View {
                     }
                 }
                 
-            }.padding()
-        }
+            }.padding(.horizontal)
+        }.ignoresSafeArea(.all)
         
         
         .onAppear {
