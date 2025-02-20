@@ -12,11 +12,22 @@ struct DetailView: View {
     
     var body: some View {
         
-        ScrollView {
-            Image(attraction.imageName).resizable()
-            Text(attraction.name)
-            Text(attraction.longDescription)
-        }
+        VStack (spacing:10){
+            Image(attraction.imageName).resizable().aspectRatio(contentMode: .fill).frame(height: 300)
+            
+            ScrollView (showsIndicators: false){
+                
+                VStack(alignment: .leading, spacing:20) {
+                    Text(attraction.name).font(.title).bold()
+                    Text(attraction.longDescription).multilineTextAlignment(.leading)
+                }.padding(.bottom, 20)
+                
+                
+            }.padding(.horizontal)
+            
+        }.ignoresSafeArea()
+        
+        
         
     }
 }

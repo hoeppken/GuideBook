@@ -13,7 +13,7 @@ struct AttractionView: View {
     
     var body: some View {
         
-        ScrollView {
+        ScrollView (showsIndicators: false){
             VStack(alignment: .leading) {
                 
                 ForEach(city.attractions) { attraction in
@@ -21,13 +21,16 @@ struct AttractionView: View {
                     NavigationLink {
                         DetailView(attraction: attraction)
                     } label: {
-                        Text(attraction.name)
+                        AttractionRow(attraction: attraction)
+                            .padding(.bottom,50)
                     }
+                    .buttonStyle(.plain)
 
                     
                 }
             }
         }
+        .padding(.horizontal)
         
     }
 }
