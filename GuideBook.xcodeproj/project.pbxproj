@@ -29,6 +29,16 @@
 		CEDDAEDE2D63D264009BE0F2 /* GuideBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuideBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CEB7C4C42D70FA3C0066D2EA /* Exceptions for "GuideBookUITests" folder in "GuideBook" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				DemoData.json,
+			);
+			target = CEDDAEC32D63D262009BE0F2 /* GuideBook */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		CEDDAEC62D63D262009BE0F2 /* GuideBook */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -42,6 +52,9 @@
 		};
 		CEDDAEE12D63D264009BE0F2 /* GuideBookUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CEB7C4C42D70FA3C0066D2EA /* Exceptions for "GuideBookUITests" folder in "GuideBook" target */,
+			);
 			path = GuideBookUITests;
 			sourceTree = "<group>";
 		};

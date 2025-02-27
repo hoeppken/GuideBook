@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CityView: View {
     
-    @State var citites = [City]()
+    @State var cities = [City]()
     var dataService = DataService()
     
     var body: some View {
@@ -19,7 +19,7 @@ struct CityView: View {
             ScrollView (showsIndicators: false){
                 
                 VStack {
-                    ForEach(citites) { city in
+                    ForEach(cities) { city in
                         
                         NavigationLink {
                             AttractionView(city: city)
@@ -37,7 +37,7 @@ struct CityView: View {
         
         
         .onAppear {
-            citites = dataService.getData()
+            cities = dataService.getFileData()
             
         }
     }
