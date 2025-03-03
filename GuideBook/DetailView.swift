@@ -20,6 +20,31 @@ struct DetailView: View {
                 VStack(alignment: .leading, spacing:20) {
                     Text(attraction.name).font(.title).bold()
                     Text(attraction.longDescription).multilineTextAlignment(.leading)
+                    
+                    //create URL instance based on URL Scheme
+                    if let url = URL (string :"maps://?q=\(cleanName(name: attraction.name))&sll=\(cleanCoords(latLong: attraction.latLong))&z=10&t=s") {
+                        //test if URL can be open
+                       if UIApplication.shared.canOpenURL(url){
+                           Button {
+                               
+                               //open the URl
+                               UIApplication.shared.open(url)
+                                   
+                               }
+                               
+                           label: {
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 15).foregroundColor(.blue).frame(height:40)
+                                    Text("Get directions").foregroundColor(.white)
+                                    
+                                }
+                            }
+                        }
+                    
+                        
+                    }
+
+                    
                 }.padding(.bottom, 20)
                 
                 
@@ -29,6 +54,16 @@ struct DetailView: View {
         
         
         
+    }
+    
+    func cleanName(name:String)->String{
+        return name.replacingOccurrences(of: " ", with: "").folding(options: .diacriticInsensitive, locale: .current)
+        
+    }
+    
+    func cleanCoords(latLong:String)->String{
+        
+        return latLong.replacingOccurrences(of: " ", with: "")
     }
 }
 
